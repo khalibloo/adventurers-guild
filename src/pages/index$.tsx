@@ -16,7 +16,6 @@ const Home: React.FC = () => {
           <List
             itemLayout="vertical"
             dataSource={quests.quests}
-            pagination={{ pageSize: 6 }}
             renderItem={(item) => (
               <List.Item
                 key={item.id}
