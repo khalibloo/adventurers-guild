@@ -1,4 +1,4 @@
-import { Avatar, Button, Col, List, Row, Space, Typography } from "antd";
+import { Button, Col, Image, List, Row, Space, Typography } from "antd";
 import { Link } from "react-router-dom";
 
 import BasicLayout from "@/layouts/BasicLayout";
@@ -55,7 +55,17 @@ const Home: React.FC = () => {
             renderItem={(item) => (
               <List.Item key={item.id}>
                 <List.Item.Meta
-                  avatar={<Avatar src="https://joeschmoe.io/api/v1/random" alt="Quest giver" />}
+                  avatar={
+                    <Image
+                      className="rounded-full"
+                      src="https://joeschmoe.io/api/v1/random"
+                      alt="Quest giver"
+                      width="32"
+                      height="32"
+                      style={{ width: 32, height: 32 }}
+                      preview={false}
+                    />
+                  }
                   title={<Link to={`/quests/${item.id}`}>{item.title}</Link>}
                   description={item.description}
                 />
