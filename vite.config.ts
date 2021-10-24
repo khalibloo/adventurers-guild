@@ -22,7 +22,44 @@ export default defineConfig({
   plugins: [
     react(),
     tsconfigPaths(),
-    VitePWA(),
+    VitePWA({
+      registerType: "autoUpdate",
+      mode: process.env.NODE_ENV === "production" ? "production" : "development",
+      includeAssets: [
+        "favicon.ico",
+        "robots.txt",
+        "icons/android-chrome-192x192.png",
+        "icons/android-chrome-512x512.png",
+      ],
+      manifest: {
+        background_color: "#8E42D3",
+        theme_color: "#8E42D3",
+        description: "Find your next adventure",
+        display: "standalone",
+        icons: [
+          {
+            src: "icons/android-chrome-192x192.png",
+            sizes: "192x192",
+            type: "image/png",
+          },
+          {
+            src: "icons/android-chrome-512x512.png",
+            sizes: "512x512",
+            type: "image/png",
+          },
+          {
+            src: "icons/android-chrome-512x512.png",
+            sizes: "512x512",
+            type: "image/png",
+            purpose: "any maskable",
+          },
+        ],
+        name: "Adventurers Guild",
+        short_name: "Adventurers Guild",
+        start_url: "./",
+        scope: "/",
+      },
+    }),
     pages({
       pagesDir: path.join(__dirname, "src", "pages"),
     }),
