@@ -27,7 +27,12 @@ const NavBar: React.FC<Props> = () => {
     <>
       <Row justify="space-between" align="middle" className="h-full">
         <Col className="h-full">
-          <Menu mode="horizontal" className="bg-transparent border-none h-full" selectable={false}>
+          <Menu
+            mode="horizontal"
+            className="bg-transparent border-none h-full"
+            selectable={false}
+            disabledOverflow
+          >
             <Menu.Item key="1" className={clsx("h-full block", styles.menuItem)}>
               <Link className="h-full" to="/">
                 <Row align="middle" className="h-full">
@@ -42,7 +47,12 @@ const NavBar: React.FC<Props> = () => {
           </Menu>
         </Col>
         <Col className="h-full">
-          <Menu mode="horizontal" className="bg-transparent border-none h-full" selectable={false}>
+          <Menu
+            mode="horizontal"
+            className="bg-transparent border-none h-full"
+            selectable={false}
+            disabledOverflow
+          >
             <Menu.Item key="lang" className={clsx("m-0 h-full", styles.menuItem)}>
               <Dropdown overlay={langMenu} trigger={["click"]}>
                 <GlobalOutlined className="text-2xl" />
