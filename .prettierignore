@@ -23,3 +23,6 @@ yarn-error.log*
 /.vscode
 
 **/*.svg
+
+# bundle size stats
+stats.html

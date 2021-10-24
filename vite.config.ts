@@ -5,8 +5,12 @@ import pages from "vite-plugin-react-pages";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { VitePWA } from "vite-plugin-pwa";
 import usePluginImport from "vite-plugin-importer";
+import { visualizer } from "rollup-plugin-visualizer";
 import lessToJS from "less-vars-to-js";
+import dotenv from "dotenv";
 import fs from "fs";
+
+dotenv.config();
 
 const themeOverride = lessToJS(fs.readFileSync("./src/styles/theme.less", "utf8"));
 
@@ -14,6 +18,11 @@ const themeOverride = lessToJS(fs.readFileSync("./src/styles/theme.less", "utf8"
 export default defineConfig({
   build: {
     sourcemap: true,
+    rollupOptions: {
+      plugins: [
+        Boolean(process.env.ANALYZE) && visualizer({ gzipSize: true, brotliSize: true }),
+      ].filter(Boolean),
+    },
   },
   css: {
     preprocessorOptions: {
