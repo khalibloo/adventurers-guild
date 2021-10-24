@@ -11,8 +11,11 @@ const Footer: React.FC = () => (
         </Typography.Text>
       </div>
       <div>
+        <Typography.Text className="text-center">Khali Lame ©2021 MIT License</Typography.Text>
+      </div>
+      <div>
         <Typography.Text className="text-center">
-          Khali Lame ©2021 All Rights Reserved
+          Oh and thanks to Lisa Wischofsky for the avatars!
         </Typography.Text>
       </div>
     </Col>

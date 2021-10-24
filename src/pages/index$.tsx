@@ -1,4 +1,5 @@
-import { Button, Col, Image, List, Row, Space, Typography } from "antd";
+import { Button, Col, Image, List, Row, Typography } from "antd";
+import { LikeOutlined, MessageOutlined, StarOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
 import BasicLayout from "@/layouts/BasicLayout";
@@ -11,39 +12,43 @@ const Home: React.FC = () => {
         Quest Board
       </Typography.Title>
       <Row justify="center">
-        <Space>
-          <Button
-            onClick={() => {
-              throw new Error("An adventurer failed a quest");
-            }}
-          >
-            Click
-          </Button>
-          <Button type="primary">Click</Button>
-        </Space>
-      </Row>
-      <Row justify="center">
         <Col span={16} xs={22} sm={22} md={18} lg={16}>
           <List
-            itemLayout="horizontal"
+            itemLayout="vertical"
             dataSource={quests.quests}
+            pagination={{ pageSize: 6 }}
             renderItem={(item) => (
-              <List.Item key={item.id}>
-                <List.Item.Meta
-                  avatar={
-                    <Image
-                      className="rounded-full"
-                      src="https://joeschmoe.io/api/v1/random"
-                      alt="Quest giver"
-                      width="32"
-                      height="32"
-                      style={{ width: 32, height: 32 }}
-                      preview={false}
-                    />
-                  }
-                  title={<Link to={`/quests/${item.id}`}>{item.title}</Link>}
-                  description={item.description}
-                />
+              <List.Item
+                key={item.id}
+                actions={[
+                  <Button type="link">
+                    <StarOutlined />
+                  </Button>,
+                  <Button type="link">
+                    <LikeOutlined />
+                  </Button>,
+                  <Button type="link">
+                    <MessageOutlined />
+                  </Button>,
+                ]}
+              >
+                <Link to={`/quests/${item.id}`} className="w-full">
+                  <List.Item.Meta
+                    avatar={
+                      <Image
+                        className="rounded-full"
+                        src={`https://avatars.dicebear.com/api/adventurer/${item.id}.svg`}
+                        alt="Quest giver"
+                        width="56"
+                        height="56"
+                        style={{ width: 56, height: 56 }}
+                        preview={false}
+                      />
+                    }
+                    title={item.title}
+                    description={item.description}
+                  />
+                </Link>
               </List.Item>
             )}
           />

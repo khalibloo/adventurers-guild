@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Spin } from "antd";
+import { Button, Result, Spin } from "antd";
 import type { Theme } from "vite-plugin-react-pages";
 import * as Sentry from "@sentry/react";
 import { Integrations } from "@sentry/tracing";
@@ -53,7 +53,24 @@ const CustomTheme: Theme = ({ loadedData, loadState }) => {
     content = <Component />;
   }
 
-  return <App>{content}</App>;
+  return (
+    <Sentry.ErrorBoundary
+      fallback={
+        <Result
+          title="A Critical Error Occurred"
+          subTitle="It has been reported to our engineers. They're on it!"
+          status="500"
+          extra={
+            <a href="/">
+              <Button type="primary">Go Home</Button>
+            </a>
+          }
+        />
+      }
+    >
+      <App>{content}</App>
+    </Sentry.ErrorBoundary>
+  );
 };
 
 export default CustomTheme;

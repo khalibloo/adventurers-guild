@@ -3,7 +3,7 @@
     {
       "id": 1,
       "title": "Find My Cat",
-      "description": "My little kitty ventured outside. Please find her! She's probably so scared right now. What if the other cats bully her?"
+      "description": "My little kitty ventured outside. Please find her! She's probably so scared right now. What if the rats bully her?"
     },
     {
       "id": 2,
@@ -19,6 +19,21 @@
       "id": 4,
       "title": "Defeat Monsters",
       "description": "It wouldn't be a fantasy world without monsters. You're an adventurer, so stop reading this and hurry up and go kill some monsters or something."
+    },
+    {
+      "id": 5,
+      "title": "Exterminate Slimes",
+      "description": "The most popular fantasy monster. Cute, jiggly, and beginner-friendly. Go whack'em!"
+    },
+    {
+      "id": 6,
+      "title": "Rescue My Brat",
+      "description": "My rude little boy that I refuse to train properly, has gone missing after throwing a tantrum during a monster invasion. Please take your time finding him. I'm not in any hurry."
+    },
+    {
+      "id": 7,
+      "title": "Defeat the Boss",
+      "description": "Yes, yes, you're having so much fun. You probably don't want to finish the game just yet, but the boss is waiting in his castle. He's bored out of his mind right now. Why don't you put him out of his misery?"
     }
   ]
 }

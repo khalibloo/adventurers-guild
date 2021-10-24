@@ -1,5 +1,5 @@
-import { Col, Row, Typography } from "antd";
-import { useParams } from "react-router-dom";
+import { Button, Col, Row, Space, Typography } from "antd";
+import { Link, useParams } from "react-router-dom";
 
 import BasicLayout from "@/layouts/BasicLayout";
 import quests from "@/quests.json";
@@ -29,6 +29,21 @@ const QuestDetailPage: React.FC = () => {
             recusandae libero ea totam qui, voluptates dolores error, ratione id et nam praesentium
             amet, impedit tempora similique omnis.
           </Typography.Paragraph>
+          <Row justify="center" className="mt-8">
+            <Space>
+              <Link to="/broken">
+                <Button>View Rewards</Button>
+              </Link>
+              <Button
+                type="primary"
+                onClick={() => {
+                  throw new Error("An adventurer failed a quest");
+                }}
+              >
+                Accept Quest
+              </Button>
+            </Space>
+          </Row>
         </Col>
       </Row>
     </BasicLayout>
