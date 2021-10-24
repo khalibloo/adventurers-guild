@@ -11,6 +11,9 @@ const themeOverride = lessToJS(fs.readFileSync("./src/styles/theme.less", "utf8"
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  build: {
+    sourcemap: true,
+  },
   css: {
     preprocessorOptions: {
       less: {

@@ -29,4 +29,5 @@ const CustomTheme: Theme = ({ loadedData, loadState }) => {
 
   return <App>{content}</App>;
 };
+
 export default CustomTheme;
