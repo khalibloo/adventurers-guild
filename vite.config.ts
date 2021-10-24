@@ -4,6 +4,7 @@ import * as path from "path";
 import pages from "vite-plugin-react-pages";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { VitePWA } from "vite-plugin-pwa";
+import usePluginImport from "vite-plugin-importer";
 import lessToJS from "less-vars-to-js";
 import fs from "fs";
 
@@ -25,6 +26,11 @@ export default defineConfig({
   plugins: [
     react(),
     tsconfigPaths(),
+    usePluginImport({
+      libraryName: "antd",
+      libraryDirectory: "es",
+      style: true,
+    }),
     VitePWA({
       registerType: "autoUpdate",
       mode: process.env.NODE_ENV === "production" ? "production" : "development",
