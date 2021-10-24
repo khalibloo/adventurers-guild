@@ -1,0 +1,5 @@
+@media (max-width: 768px) {
+  .menuItem {
+    padding: 0px 8px !important;
+  }
+}

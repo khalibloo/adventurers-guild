@@ -16,8 +16,8 @@ const QuestDetailPage: React.FC = () => {
   return (
     <BasicLayout pageTitle={quest.title} pageDescription={quest.description}>
       <Row justify="center">
-        <Col md={16} className="text-center">
-          <Typography.Title level={1}>{quest.title}</Typography.Title>
+        <Col span={16} xs={22} sm={22} md={18} lg={16} className="text-center">
+          <Typography.Title level={3}>{quest.title}</Typography.Title>
           <Typography.Paragraph>{quest.description}</Typography.Paragraph>
           <Typography.Paragraph>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum officia mollitia cumque
