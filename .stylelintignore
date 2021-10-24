@@ -1,0 +1,21 @@
+# dependencies
+/node_modules
+/.pnp
+
+# testing
+/coverage
+
+# production
+/dist
+/dist-ssr
+
+# misc
+.DS_Store
+*.pem
+
+# vs code
+/.vscode
+
+*.js
+*.ts
+*.tsx
