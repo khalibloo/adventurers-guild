@@ -2,8 +2,8 @@ import React from "react";
 import { Typography, Row, Col, Button } from "antd";
 
 const Footer: React.FC = () => (
-  <Row justify="center" className="pt-4">
-    <Col>
+  <Row justify="center" className="pt-4 text-center">
+    <Col span={24}>
       <div className="text-center">
         <Typography.Text>
           <Button type="link">Terms of Service</Button> |{" "}

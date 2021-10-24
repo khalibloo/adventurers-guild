@@ -23,7 +23,7 @@ const Home: React.FC = () => {
         </Space>
       </Row>
       <Row justify="center">
-        <Col span={16}>
+        <Col span={16} xs={22} sm={22} md={18} lg={16}>
           <List
             itemLayout="horizontal"
             dataSource={quests.quests}

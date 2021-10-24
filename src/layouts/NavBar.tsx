@@ -1,8 +1,10 @@
 import React from "react";
 import { Typography, Row, Col, Menu, Dropdown } from "antd";
 import { GlobalOutlined, SettingOutlined } from "@ant-design/icons";
-
 import { Link } from "react-router-dom";
+import clsx from "clsx";
+
+import styles from "./NavBar.module.css";
 
 interface Props {}
 const NavBar: React.FC<Props> = () => {
@@ -25,8 +27,8 @@ const NavBar: React.FC<Props> = () => {
     <>
       <Row justify="space-between" align="middle" className="h-full">
         <Col className="h-full">
-          <Menu mode="horizontal" className="bg-transparent border-none h-full" selectedKeys={[]}>
-            <Menu.Item key="1" className="h-full block">
+          <Menu mode="horizontal" className="bg-transparent border-none h-full" selectable={false}>
+            <Menu.Item key="1" className={clsx("h-full block", styles.menuItem)}>
               <Link className="h-full" to="/">
                 <Row align="middle" className="h-full">
                   <Col>
@@ -41,18 +43,14 @@ const NavBar: React.FC<Props> = () => {
         </Col>
         <Col className="h-full">
           <Menu mode="horizontal" className="bg-transparent border-none h-full" selectable={false}>
-            <Menu.Item key="lang" className="m-0 h-full">
+            <Menu.Item key="lang" className={clsx("m-0 h-full", styles.menuItem)}>
               <Dropdown overlay={langMenu} trigger={["click"]}>
-                <div className="px-2">
-                  <GlobalOutlined className="text-2xl" />
-                </div>
+                <GlobalOutlined className="text-2xl" />
               </Dropdown>
             </Menu.Item>
-            <Menu.Item key="settings" className="m-0 h-full">
+            <Menu.Item key="settings" className={clsx("m-0 h-full", styles.menuItem)}>
               <Dropdown overlay={settingsMenu} trigger={["click"]}>
-                <div className="px-2">
-                  <SettingOutlined className="text-2xl" />
-                </div>
+                <SettingOutlined className="text-2xl" />
               </Dropdown>
             </Menu.Item>
           </Menu>
