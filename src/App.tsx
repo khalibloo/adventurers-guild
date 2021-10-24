@@ -19,6 +19,7 @@ const App: React.FC = ({ children }) => {
     <QueryClientProvider client={queryClient}>
       <ConfigProvider>
         <Head>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="application-name" content="Adventurers Guild" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-status-bar-style" content="default" />
