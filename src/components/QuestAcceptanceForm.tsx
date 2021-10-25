@@ -19,7 +19,10 @@ const QuestAcceptanceForm: React.FC<Props> = ({ onSubmit }) => {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
       })
       .then(() => {
-        notification.success({ message: "Quest Accepted", description: "Your adventure beings" });
+        notification.success({
+          message: "Quest Accepted",
+          description: "And so your adventure begins",
+        });
         onSubmit?.();
       })
       .catch((err) => {
