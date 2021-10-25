@@ -1,4 +1,4 @@
-import { Button, Col, Image, List, Row, Typography } from "antd";
+import { Button, Col, Image, List, Row, Skeleton, Typography } from "antd";
 import { LikeOutlined, MessageOutlined, StarOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
@@ -15,45 +15,52 @@ const Home: React.FC = () => {
       </Typography.Title>
       <Row justify="center">
         <Col span={16} xs={22} sm={22} md={18} lg={16}>
-          <List
-            itemLayout="vertical"
-            dataSource={data?.quests}
-            loading={isLoading}
-            renderItem={(item) => (
-              <List.Item
-                key={item.id}
-                actions={[
-                  <Button type="link">
-                    <StarOutlined />
-                  </Button>,
-                  <Button type="link">
-                    <LikeOutlined />
-                  </Button>,
-                  <Button type="link">
-                    <MessageOutlined />
-                  </Button>,
-                ]}
-              >
-                <Link to={`/quests/${item.id}`} className="w-full">
-                  <List.Item.Meta
-                    avatar={
-                      <Image
-                        className="rounded-full"
-                        src={`https://avatars.dicebear.com/api/adventurer/${item.id}.svg`}
-                        alt="Quest giver"
-                        width="56"
-                        height="56"
-                        style={{ width: 56, height: 56 }}
-                        preview={false}
-                      />
-                    }
-                    title={item.title}
-                    description={item.description}
-                  />
-                </Link>
-              </List.Item>
-            )}
-          />
+          {isLoading ? (
+            <List
+              itemLayout="vertical"
+              dataSource={[1, 2, 3, 4, 5, 6]}
+              renderItem={(item) => <Skeleton active loading avatar key={item} />}
+            />
+          ) : (
+            <List
+              itemLayout="vertical"
+              dataSource={data?.quests}
+              renderItem={(item) => (
+                <List.Item
+                  key={item.id}
+                  actions={[
+                    <Button type="link">
+                      <StarOutlined />
+                    </Button>,
+                    <Button type="link">
+                      <LikeOutlined />
+                    </Button>,
+                    <Button type="link">
+                      <MessageOutlined />
+                    </Button>,
+                  ]}
+                >
+                  <Link to={`/quests/${item.id}`} className="w-full">
+                    <List.Item.Meta
+                      avatar={
+                        <Image
+                          className="rounded-full"
+                          src={`https://avatars.dicebear.com/api/adventurer/${item.id}.svg`}
+                          alt="Quest giver"
+                          width="56"
+                          height="56"
+                          style={{ width: 56, height: 56 }}
+                          preview={false}
+                        />
+                      }
+                      title={item.title}
+                      description={item.description}
+                    />
+                  </Link>
+                </List.Item>
+              )}
+            />
+          )}
         </Col>
       </Row>
     </BasicLayout>
