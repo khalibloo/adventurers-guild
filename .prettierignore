@@ -26,3 +26,6 @@ yarn-error.log*
 
 # bundle size stats
 stats.html
+
+# netlify
+/.netlify

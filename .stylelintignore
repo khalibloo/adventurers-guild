@@ -22,3 +22,6 @@
 
 # bundle size stats
 stats.html
+
+# netlify
+/.netlify

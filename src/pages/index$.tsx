@@ -3,9 +3,11 @@ import { LikeOutlined, MessageOutlined, StarOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
 import BasicLayout from "@/layouts/BasicLayout";
-import quests from "@/quests.json";
+import useQuests from "@/queries/useQuests";
 
 const Home: React.FC = () => {
+  const { data, isLoading } = useQuests();
+
   return (
     <BasicLayout pageTitle="Quest Board" pageDescription="Find your next adventure">
       <Typography.Title level={3} className="text-center">
@@ -15,7 +17,8 @@ const Home: React.FC = () => {
         <Col span={16} xs={22} sm={22} md={18} lg={16}>
           <List
             itemLayout="vertical"
-            dataSource={quests.quests}
+            dataSource={data?.quests}
+            loading={isLoading}
             renderItem={(item) => (
               <List.Item
                 key={item.id}

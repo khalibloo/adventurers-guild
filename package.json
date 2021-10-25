@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
+    "@netlify/functions": "^0.7.2",
     "@sentry/react": "^6.13.3",
     "@sentry/tracing": "^6.13.3",
     "ahooks": "^2.10.11",
