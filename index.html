@@ -28,6 +28,11 @@
     <title>Adventurers Guild</title>
   </head>
   <body>
+    <!-- A little help for the Netlify bots if you're not using a SSG -->
+    <form name="Quest Acceptance" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="partyName" />
+      <input type="data" name="startDate" />
+    </form>
     <div id="root"></div>
     <script type="module" src="/@pages-infra/main.js"></script>
   </body>

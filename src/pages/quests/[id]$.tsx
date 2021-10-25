@@ -25,7 +25,7 @@ const QuestDetailPage: React.FC = () => {
         okText="Accept Quest"
         okButtonProps={{ htmlType: "submit", form: "Quest Acceptance" }}
       >
-        <QuestAcceptanceForm />
+        <QuestAcceptanceForm onSubmit={closeAcceptModal} />
       </Modal>
       <Row justify="center">
         <Col span={16} xs={22} sm={22} md={18} lg={16} className="text-center">
