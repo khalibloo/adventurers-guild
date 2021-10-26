@@ -1,4 +1,4 @@
-import { Button, Col, Modal, Row, Skeleton, Space, Typography } from "antd";
+import { Button, Col, Modal, Row, Skeleton, Typography } from "antd";
 import { useBoolean } from "ahooks";
 import { Link, useParams } from "react-router-dom";
 
@@ -69,19 +69,21 @@ const QuestDetailPage: React.FC = () => {
               praesentium amet, impedit tempora similique omnis.
             </Typography.Paragraph>
           </Skeleton>
-          <Row justify="center" className="mt-8">
-            <Space>
-              {isLoading ? (
-                <>
-                  <Skeleton.Button active style={{ width: 160 }} />
-                  <Skeleton.Button active style={{ width: 160 }} />
-                  <Skeleton.Button active style={{ width: 160 }} />
-                </>
-              ) : (
-                <>
+          <Row justify="center" className="mt-8" gutter={[24, 24]}>
+            {isLoading ? (
+              <>
+                <Skeleton.Button active style={{ width: 160 }} />
+                <Skeleton.Button active style={{ width: 160 }} />
+                <Skeleton.Button active style={{ width: 160 }} />
+              </>
+            ) : (
+              <>
+                <Col>
                   <Link to="/broken">
                     <Button>View Rewards</Button>
                   </Link>
+                </Col>
+                <Col>
                   <Button
                     type="primary"
                     danger
@@ -91,12 +93,14 @@ const QuestDetailPage: React.FC = () => {
                   >
                     Fail Quest
                   </Button>
+                </Col>
+                <Col>
                   <Button type="primary" onClick={openAcceptModal}>
                     Accept Quest
                   </Button>
-                </>
-              )}
-            </Space>
+                </Col>
+              </>
+            )}
           </Row>
         </Col>
       </Row>
