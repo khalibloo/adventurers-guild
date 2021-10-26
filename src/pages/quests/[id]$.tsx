@@ -1,4 +1,4 @@
-import { Button, Col, Modal, Row, Skeleton, Typography } from "antd";
+import { Button, Col, Modal, notification, Row, Skeleton, Typography } from "antd";
 import { useBoolean } from "ahooks";
 import { Link, useParams } from "react-router-dom";
 
@@ -88,6 +88,10 @@ const QuestDetailPage: React.FC = () => {
                     type="primary"
                     danger
                     onClick={() => {
+                      notification.error({
+                        message: "Game Over",
+                        description: "Ah well, just retry the quest",
+                      });
                       throw new Error("An adventurer failed a quest");
                     }}
                   >
