@@ -6,13 +6,14 @@ import {
   SearchOutlined,
   ShareAltOutlined,
 } from "@ant-design/icons";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import BasicLayout from "@/layouts/BasicLayout";
 import useQuests from "@/queries/useQuests";
 
 const Home: React.FC = () => {
   const { data, isLoading } = useQuests();
+  const history = useHistory();
 
   return (
     <BasicLayout pageTitle="Quest Board" pageDescription="Find your next adventure" noPadding>
@@ -57,9 +58,10 @@ const Home: React.FC = () => {
               split={false}
               renderItem={(item) => (
                 <List.Item key={item.id}>
-                  <Link to={`/quests/${item.id}`} className="w-full">
-                    <Card hoverable size="small">
-                      <Row justify="space-between">
+                  {/* <Link to={`/quests/${item.id}`} className="w-full"> */}
+                  <Card hoverable size="small" onClick={() => history.push(`/quests/${item.id}`)}>
+                    <Row justify="space-between">
+                      <Link to={`/quests/${item.id}`}>
                         <Col>
                           <div>
                             <Typography.Text className="text-primary" strong>
@@ -76,33 +78,39 @@ const Home: React.FC = () => {
                             <Typography.Text>{item.type}</Typography.Text>
                           </div>
                         </Col>
-                        <Col>
-                          <Row>
-                            <Col xs={4} md={0}>
-                              <Button type="text" icon={<MoreOutlined />} />
-                            </Col>
-                            <Col span={24} xs={0} md={24}>
-                              <Space>
-                                <Button
-                                  className="text-primary"
-                                  type="text"
-                                  icon={<ShareAltOutlined />}
-                                >
-                                  Share
-                                </Button>
-                                <Button
-                                  className="text-primary"
-                                  type="text"
-                                  icon={<SaveOutlined />}
-                                >
-                                  Save
-                                </Button>
-                                <Button type="primary">Apply</Button>
-                              </Space>
-                            </Col>
-                          </Row>
-                        </Col>
-                      </Row>
+                      </Link>
+                      <Col>
+                        <Row>
+                          <Col xs={4} md={0}>
+                            <Button type="text" icon={<MoreOutlined />} />
+                          </Col>
+                          <Col span={24} xs={0} md={24}>
+                            <Space>
+                              <Button
+                                className="text-primary"
+                                type="text"
+                                icon={<ShareAltOutlined />}
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                Share
+                              </Button>
+                              <Button
+                                className="text-primary"
+                                type="text"
+                                icon={<SaveOutlined />}
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                Save
+                              </Button>
+                              <Button type="primary" onClick={(e) => e.stopPropagation()}>
+                                Apply
+                              </Button>
+                            </Space>
+                          </Col>
+                        </Row>
+                      </Col>
+                    </Row>
+                    <Link to={`/quests/${item.id}`}>
                       <Row className="mt-6" align="bottom" gutter={24}>
                         <Col span={20} xs={0} md={16} lg={18}>
                           <Typography.Paragraph
@@ -120,8 +128,9 @@ const Home: React.FC = () => {
                           <Typography.Text type="secondary">Posted 5 days ago</Typography.Text>
                         </Col>
                       </Row>
-                    </Card>
-                  </Link>
+                    </Link>
+                  </Card>
+                  {/* </Link> */}
                 </List.Item>
               )}
             />
