@@ -1,6 +1,6 @@
 import React from "react";
 import { Typography, Row, Col, Menu, Dropdown } from "antd";
-import { GlobalOutlined, SettingOutlined } from "@ant-design/icons";
+import { MenuOutlined, UserOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import clsx from "clsx";
 
@@ -8,10 +8,16 @@ import styles from "./NavBar.module.css";
 
 interface Props {}
 const NavBar: React.FC<Props> = () => {
-  const langMenu = (
+  const mainMenu = (
     <Menu onClick={() => {}}>
-      <Menu.Item key="en-US">English</Menu.Item>
-      <Menu.Item key="fr-FR">Français</Menu.Item>
+      <Menu.Item key="signin">Sign In</Menu.Item>
+      <Menu.Divider />
+      <Menu.Item key="search">Search Jobs</Menu.Item>
+      <Menu.Divider />
+      <Menu.Item key="custom1">Custom Link 1</Menu.Item>
+      <Menu.Item key="custom2">Custom Link 2</Menu.Item>
+      <Menu.Divider />
+      <Menu.Item key="lang">Language</Menu.Item>
     </Menu>
   );
 
@@ -33,7 +39,12 @@ const NavBar: React.FC<Props> = () => {
             selectable={false}
             disabledOverflow
           >
-            <Menu.Item key="1" className={clsx("h-full block", styles.menuItem)}>
+            <Menu.Item key="burger" className={clsx("m-0 h-full", styles.menuItem)}>
+              <Dropdown overlay={mainMenu} trigger={["click"]}>
+                <MenuOutlined className="text-2xl" />
+              </Dropdown>
+            </Menu.Item>
+            <Menu.Item key="1" className={clsx("h-full", styles.menuItem)}>
               <Link className="h-full" to="/">
                 <Row align="middle" className="h-full">
                   <Col>
@@ -53,14 +64,9 @@ const NavBar: React.FC<Props> = () => {
             selectable={false}
             disabledOverflow
           >
-            <Menu.Item key="lang" className={clsx("m-0 h-full", styles.menuItem)}>
-              <Dropdown overlay={langMenu} trigger={["click"]}>
-                <GlobalOutlined className="text-2xl" />
-              </Dropdown>
-            </Menu.Item>
             <Menu.Item key="settings" className={clsx("m-0 h-full", styles.menuItem)}>
               <Dropdown overlay={settingsMenu} trigger={["click"]}>
-                <SettingOutlined className="text-2xl" />
+                <UserOutlined className="text-2xl" />
               </Dropdown>
             </Menu.Item>
           </Menu>
